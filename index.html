@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <!-- Include the script loader -->
+    <script src="loadScripts.js"></script>
+</head>
+<body>
+    <h1>Test 1</h1>
+    <a-scene>
+        <!-- Camera with cursor -->
+        <a-entity position="0 1.6 0">
+          <a-camera>
+            <a-cursor></a-cursor>
+          </a-camera>
+        </a-entity>
+  
+        <!-- Red box positioned in front of the user -->
+        <a-box 
+          color="red" 
+          position="0 1.6 -2" 
+          width="1" 
+          height="1" 
+          depth="1">
+        </a-box>
+      </a-scene>
+
+</body>
+</html>
