@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
-    <!-- Include the script loader -->
-    <script src="loadScripts.js"></script>
+    <!-- Directly include A-Frame and plugins -->
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
 </head>
 <body>
-    <h1>Test 1</h1>
+
+<a-assets>
+ <!--skybox preload remember crossorigin-->   
+<img id="skybox1" crossorigin="anonymous" src="Assets/skybox1.png">
+</a-assets>
+
+
+
+
     <a-scene>
+        <!--Obscure syntax for loading-->
+        <img id="background-img" src="#skybox1.png">
+
+
         <!-- Camera with cursor -->
-        <a-entity position="0 1.6 0">
+        <a-entity position="0 1.2 0">
           <a-camera>
             <a-cursor></a-cursor>
           </a-camera>
@@ -26,6 +40,5 @@
           depth="1">
         </a-box>
       </a-scene>
-
 </body>
 </html>
