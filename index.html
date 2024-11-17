@@ -11,34 +11,31 @@
 </head>
 <body>
 
-<a-assets>
- <!--skybox preload remember crossorigin-->   
-<img id="skybox1" crossorigin="anonymous" src="Assets/skybox1.png">
-</a-assets>
-
-
-
+    <!-- Preload assets -->
+    <a-assets>
+        <img id="skybox1" crossorigin="anonymous" src="Assets/skybox1.png">
+    </a-assets>
 
     <a-scene>
-        <!--Obscure syntax for loading-->
-        <img id="background-img" src="#skybox1.png">
-
+        <!-- Load the skybox -->
+        <a-sky src="#skybox1"></a-sky>
 
         <!-- Camera with cursor -->
         <a-entity position="0 1.2 0">
-          <a-camera>
-            <a-cursor></a-cursor>
-          </a-camera>
+            <a-camera>
+                <a-cursor></a-cursor>
+            </a-camera>
         </a-entity>
-  
+
         <!-- Red box positioned in front of the user -->
         <a-box 
-          color="red" 
-          position="0 1.6 -2" 
-          width="1" 
-          height="1" 
-          depth="1">
+            color="red" 
+            position="0 1.6 -2" 
+            width="1" 
+            height="1" 
+            depth="1">
         </a-box>
-      </a-scene>
+    </a-scene>
+
 </body>
 </html>
