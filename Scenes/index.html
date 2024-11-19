@@ -6,7 +6,7 @@
     <title>Test</title>
 
     <!-- Include A-Frame -->
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 
 
       
@@ -19,15 +19,21 @@
     <script src="../raycaster-listen.js"></script>
 </head>
 <body>
-    <a-scene>
+    <a-scene inspector stats>
 
           
 
         <!-- Preload assets -->
         <a-assets>
-            <img id="skybox1" crossorigin="anonymous" src="../Assets/skybox1.png">
+            <img id="skybox1" crossorigin="anonymous" src="../Assets/skybox1.png" >
         </a-assets>
-
+        
+                <!-- Skybox with custom geometry and scale -->
+                <a-sky
+                src="#skybox1"
+                geometry="primitive: sphere; radius: 492.72; segmentsWidth: 6; segmentsHeight: 6"
+                scale="0.7 0.4 1">
+                 </a-sky>
 
 
         <!-- Camera with a cursor -->
@@ -38,7 +44,7 @@
                 geometry="primitive: sphere; radius: 0.005"
                 material="color: #000000; shader: flat; opacity: 0.5"
                 raycaster="objects: .clickable"
-                fov="1.5">
+                >
             </a-cursor>
         </a-camera>
 

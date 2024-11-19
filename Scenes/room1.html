@@ -18,15 +18,18 @@
 
 
 
-    <a-scene>
+    <a-scene inspector stats>
 
             <!-- Preload assets -->
     <a-assets>
-        <img id="skybox1" crossorigin="anonymous" src="../Assets/skybox2.png">
+         <img id="skybox2" crossorigin="anonymous" src="../Assets/skybox2.png"> 
     </a-assets>
 
         <!-- Load the skybox -->
-        <a-sky src="#skybox1"></a-sky>
+        <a-sky src="#skybox2"
+        geometry="primitive: sphere; radius: 492.72; segmentsWidth: 6; segmentsHeight: 6"
+        scale="0.7 0.4 1">
+        </a-sky>
 
         <!-- Camera with cursor -->
         <a-camera>
@@ -40,9 +43,9 @@
             </a-cursor>
         </a-camera>
 
-        <!-- Red box positioned in front of the user -->
+        <!-- Blue box positioned in front of the user -->
         <a-box 
-        geometry="primitive: box"
+        geometry="primitive: box; depth: 1; height: 1; width: 1; segments: 1 1 1"
         class="clickable"
         color="blue"
         position="0 0.5 -2"
