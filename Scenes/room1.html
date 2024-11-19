@@ -27,7 +27,7 @@
 
         <!-- Load the skybox -->
         <a-sky src="#skybox2"
-        geometry="primitive: sphere; radius: 492.72; segmentsWidth: 6; segmentsHeight: 6"
+        geometry="primitive: sphere; radius: 492.72; segmentsWidth: 12; segmentsHeight: 12"
         scale="0.7 0.4 1">
         </a-sky>
 
@@ -36,10 +36,10 @@
             <a-cursor
                 cursor
                 position="0 0 -1"
-                geometry="primitive: sphere; radius: 0.005"
+                geometry="primitive: sphere; radius: 0.005 segmentsWidth: 4; segmentsHeight: 4"
                 material="color: #000000; shader: flat; opacity: 0.5"
                 raycaster="objects: .clickable"
-                fov="1.5">
+                >
             </a-cursor>
         </a-camera>
 
