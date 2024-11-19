@@ -5,106 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
 
+    <!-- Include A-Frame -->
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 
-
-    <!-- Directly include A-Frame and plugins -->
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
-
-    <!--event handler script, place outside once working-->
-
-    <script>
-
-                // Fix for touch event listener (passive mode for better performance)
-                 document.addEventListener('touchstart', function () {}, {passive: true});
-
-
-                // Add custom behavior for right mouse click
-                AFRAME.registerComponent('right-click-navigate', {
-            init: function () {
-                this.el.addEventListener('click', (event) => {
-                    // Check if the right mouse button was clicked
-                    if (event.detail === 2) { // `event.detail` is 2 for right-clicks in A-Frame
-                        // Navigate to another scene
-                        window.location.href = 'Scenes/room1.html'; // Replace with your scene URL
-                    }
-                });
-            }
-        });
-    </script>
-
-<!--Raycaster script for clickable objects-->
-<script>
-    AFRAME.registerComponent('raycaster-listen', {
-        init: function () {
-            this.el.addEventListener('mouseenter', () => {
-                console.log('Mouse entered box!');
-                this.el.setAttribute('material', 'color', 'green'); // Manually set the color to green
-            });
-            this.el.addEventListener('mouseleave', () => {
-                console.log('Mouse left box!');
-                this.el.setAttribute('material', 'color', 'red'); // Manually set the color back to red
-            });
-        }
-    });
-</script>
-
-
-
-
-
+    <!-- Include external raycaster script -->
+    <script src="raycaster-listen.js"></script>
 </head>
 <body>
-
-
-
     <a-scene>
+        <!-- Preload assets -->
+        <a-assets>
+            <img id="skybox1" crossorigin="anonymous" src="Assets/skybox1.png">
+        </a-assets>
 
-    <!-- Preload assets -->
-    <a-assets>
-        <img id="skybox1" crossorigin="anonymous" src="Assets/skybox1.png">
-    </a-assets>
+        <!-- Camera with a cursor -->
+        <a-camera>
+            <a-cursor
+                cursor
+                position="0 0 -1"
+                geometry="primitive: sphere; radius: 0.005"
+                material="color: #000000; shader: flat; opacity: 0.5"
+                raycaster="objects: .clickable"
+                fov="1.5">
+            </a-cursor>
+        </a-camera>
 
-
-
-
-
-
-
-<!--Camera-->
-
-
-<a-camera>
-<a-cursor cursor position="0 0 -1"
-          geometry="primitive: sphere; radius: 0.005"
-          material="color: #000000; shader: flat; opacity: 0.5"
-          raycaster="objects: .clickable"
-          >
-</a-cursor>
-</a-camera>
-
-
-
-        <!-- Load the skybox -->
+        <!-- Skybox -->
         <a-sky src="#skybox1"></a-sky>
 
-
-
         <!-- Red box positioned in front of the user -->
-        <a-box 
-            class="clickable" 
+        <a-box
+            geometry="primitive: box"
+            class="clickable"
             color="red"
-            position="0 0.5 -2" 
-            width="1" 
-            height="1" 
-            depth="1"
-            event-set__mouseenter="material.color: green"
-            event-set__mouseleave="material.color: red"
-            raycaster-listen>
+            position="0 0.5 -2"
+            navigate-on-click="target: /Scenes/room1.html">
         </a-box>
     </a-scene>
-
 </body>
 </html>
