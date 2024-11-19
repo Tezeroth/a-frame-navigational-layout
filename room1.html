@@ -6,35 +6,47 @@
     <title>Test</title>
     <!-- Directly include A-Frame and plugins -->
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <!--dont need these yet
     <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
-    
+    -->
+
+        <!-- Include external raycaster script -->
+        <script src="raycaster-listen.js"></script>
 </head>
 <body>
 
-    <!-- Preload assets -->
-    <a-assets>
-        <img id="skybox1" crossorigin="anonymous" src="Assets/skybox1.png">
-    </a-assets>
+
 
     <a-scene>
+
+            <!-- Preload assets -->
+    <a-assets>
+        <img id="skybox1" crossorigin="anonymous" src="Assets/skybox2.png">
+    </a-assets>
+
         <!-- Load the skybox -->
         <a-sky src="#skybox1"></a-sky>
 
         <!-- Camera with cursor -->
-        <a-entity position="0 1.2 0">
-            <a-camera>
-                <a-cursor></a-cursor>
-            </a-camera>
-        </a-entity>
+        <a-camera>
+            <a-cursor
+                cursor
+                position="0 0 -1"
+                geometry="primitive: sphere; radius: 0.005"
+                material="color: #000000; shader: flat; opacity: 0.5"
+                raycaster="objects: .clickable"
+                fov="1.5">
+            </a-cursor>
+        </a-camera>
 
         <!-- Red box positioned in front of the user -->
         <a-box 
-            color="blue" 
-            position="0 1.6 -2" 
-            width="1" 
-            height="1" 
-            depth="1">
+        geometry="primitive: box"
+        class="clickable"
+        color="blue"
+        position="0 0.5 -2"
+        navigate-on-click="target: index.html">
         </a-box>
     </a-scene>
 
