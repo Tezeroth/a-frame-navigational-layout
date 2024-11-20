@@ -23,6 +23,10 @@
             <!-- Preload assets -->
     <a-assets>
          <img id="skybox2" crossorigin="anonymous" src="../Assets/skybox2.png"> 
+
+
+
+
     </a-assets>
 
         <!-- Load the skybox -->
@@ -48,9 +52,19 @@
         geometry="primitive: box; depth: 1; height: 1; width: 1; segments: 1 1 1"
         class="clickable"
         color="blue"
-        position="0 0.5 -2"
+        position="-2 0.5 -2"
         navigate-on-click="target: index.html">
         </a-box>
+
+        <a-entity 
+        gltf-model="Models/archwaybake.glb" 
+        position="0 0 -3" 
+        rotation="0 180 0" 
+        scale="1 1 1w ">
+      </a-entity>
+
+
+
     </a-scene>
 
 </body>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+ <!-- Include A-Frame -->
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+<!-- Include external raycaster script -->
+    <script src="../raycaster-listen.js"></script>
+</head>
+<body>
+    <a-scene inspector stats>
+
+        <!-- Preload assets -->
+        <a-assets>
+            <img id="skybox1" crossorigin="anonymous" src="../Assets/skybox3.png" >
+        </a-assets>
+        
+                <!-- Skybox with custom geometry and scale -->
+                <a-sky
+                src="#skybox1"
+                geometry="primitive: sphere; radius: 492.72; segmentsWidth: 12; segmentsHeight: 12"
+                scale="0.7 0.4 1">
+                 </a-sky>
+
+
+        <!-- Camera with a cursor -->
+        <a-camera>
+            <a-cursor
+                cursor
+                position="0 0 -1"
+                geometry="primitive: sphere; radius: 0.005 segmentsWidth: 4; segmentsHeight: 4"
+                material="color: #000000; shader: flat; opacity: 0.5"
+                raycaster="objects: .clickable"
+                >
+            </a-cursor>
+        </a-camera>
+
+        <!-- green box positioned in front of the user -->
+        <a-box
+            geometry="primitive: box"
+            class="clickable"
+            color="green"
+            position="-2 0.5 -2"
+            navigate-on-click="target: room1.html">
+        </a-box>
+
+        <a-entity 
+        gltf-model="Models/archwaybake.glb" 
+        position="0 0 -3" 
+        rotation="0 180 0" 
+        scale="1 1 1w ">
+      </a-entity>
+
+    </a-scene>
+<p>Hello my name is Tezz</p>
+
+
+</body>
+</html>
