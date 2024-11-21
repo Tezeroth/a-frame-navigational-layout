@@ -13,7 +13,7 @@
     <a-scene inspector stats controller-raycaster>
         <!-- Preload assets -->
         <a-assets>
-            <img id="skybox1" crossorigin="anonymous" src="/Assets/skybox1.png">
+            <img id="skybox1" crossorigin="anonymous" src="Assets/skybox1.png">
         </a-assets>
     
         <!-- Skybox -->
@@ -23,23 +23,21 @@
             scale="0.7 0.4 1">
         </a-sky>
     
-        <!-- Camera with cursor -->
-        <a-camera>
-            <a-entity id="rig"
-            movement-controls="controls: gamepad,keyboard,nipple"
-            nipple-controls="mode: static">
+        <!-- Camera Rig with Movement Controls -->
+        <a-entity id="rig" movement-controls="controls: gamepad, keyboard" position="0 1.6 0">
+            <!-- Camera -->
+            <a-camera>
+                <a-cursor
+                    cursor
+                    position="0 0 -1"
+                    geometry="primitive: sphere; radius: 0.005 segmentsWidth: 4; segmentsHeight: 4"
+                    material="color: #0FFF00; shader: flat; opacity: 0.5"
+                    raycaster="objects: .clickable">
+                </a-cursor>
+            </a-camera>
+        </a-entity>
 
-            <a-cursor
-                cursor
-                position="0 0 -1"
-                geometry="primitive: sphere; radius: 0.5 segmentsWidth: 4; segmentsHeight: 4"
-                material="color: #0FFF00; shader: flat; opacity: 0.5"
-                raycaster="objects: .clickable">
-            </a-cursor>
-        </a-camera>
-            </a-entity>
 
-            
         <!-- VR Hand controllers -->
         <a-entity hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
         <a-entity hand-controls="hand: right; handModelStyle: lowPoly; color: #ccccff"></a-entity>
@@ -50,7 +48,7 @@
         <a-box class="clickable" color="green" position="2 0.5 -2" navigate-on-click="target: /Scenes/room3.html"></a-box>
     
         <!-- Floor -->
-        <a-plane src="/Assets/checkerboard.png" scale="0.5 0.5 0.5" position="0 0 -5" width="30" height="30" rotation="-90 0 0"></a-plane>
+        <a-plane src="Assets/checkerboard.png" scale="0.5 0.5 0.5" position="0 0 -5" width="30" height="30" rotation="-90 0 0"></a-plane>
     </a-scene>
     
 
