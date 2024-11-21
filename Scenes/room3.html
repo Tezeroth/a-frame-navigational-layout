@@ -14,12 +14,12 @@
 
         <!-- Preload assets -->
         <a-assets>
-            <img id="skybox1" crossorigin="anonymous" src="../Assets/skybox3.png" >
+            <img id="skybox4" crossorigin="anonymous" src="../Assets/skybox4.png" >
         </a-assets>
         
                 <!-- Skybox with custom geometry and scale -->
                 <a-sky
-                src="#skybox1"
+                src="#skybox4"
                 geometry="primitive: sphere; radius: 492.72; segmentsWidth: 12; segmentsHeight: 12"
                 scale="0.7 0.4 1">
                  </a-sky>
@@ -36,6 +36,13 @@
                 >
             </a-cursor>
         </a-camera>
+
+<!--Lighting-->
+<a-entity light="color: #c46e6e; type: ambient; angle: 60.59; groundColor: #cb6262; intensity: 1.67; castShadow: true" data-aframe-default-light="" aframe-injected=""></a-entity>
+
+<a-entity light="color: #1f190f; intensity: 3.04; castShadow: true; groundColor: #d5c039; penumbra: 0.01" position="-11.25399 1 -20.4958" data-aframe-default-light="" aframe-injected=""></a-entity>
+
+
 
         <!--The floor-->
         <a-plane src="/Assets/checkerboard.png"
