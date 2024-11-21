@@ -28,8 +28,7 @@
             <!-- Camera -->
             <a-camera>
                 <a-cursor
-                    cursor
-                    position="0 0 -1"
+                    cursor position="0 0 -1"
                     geometry="primitive: sphere; radius: 0.005 segmentsWidth: 4; segmentsHeight: 4"
                     material="color: #0FFF00; shader: flat; opacity: 0.5"
                     raycaster="objects: .clickable">
@@ -43,9 +42,9 @@
         <a-entity hand-controls="hand: right; handModelStyle: lowPoly; color: #ccccff"></a-entity>
     
         <!-- Clickable boxes -->
-        <a-box class="clickable" color="red" position="-2 0.5 -2" navigate-on-click="target: /Scenes/room1.html"></a-box>
-        <a-box class="clickable" color="blue" position="0 0.5 -2" navigate-on-click="target: /Scenes/room2.html"></a-box>
-        <a-box class="clickable" color="green" position="2 0.5 -2" navigate-on-click="target: /Scenes/room3.html"></a-box>
+        <a-box class="clickable" color="red" position="-2 0.5 -2" navigate-on-click="target: Scenes/room1.html"></a-box>
+        <a-box class="clickable" color="blue" position="0 0.5 -2" navigate-on-click="target: Scenes/room2.html"></a-box>
+        <a-box class="clickable" color="green" position="2 0.5 -2" navigate-on-click="target: Scenes/room3.html"></a-box>
     
         <!-- Floor -->
         <a-plane src="Assets/checkerboard.png" scale="0.5 0.5 0.5" position="0 0 -5" width="30" height="30" rotation="-90 0 0"></a-plane>
