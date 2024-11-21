@@ -43,12 +43,13 @@
                     raycaster="objects: .clickable">
                 </a-cursor>
             </a-camera>
+                    <!-- VR Hand controllers -->
+        <a-entity hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+        <a-entity hand-controls="hand: right; handModelStyle: lowPoly; color: #ccccff"></a-entity>
         </a-entity>
 
 
-        <!-- VR Hand controllers -->
-        <a-entity hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
-        <a-entity hand-controls="hand: right; handModelStyle: lowPoly; color: #ccccff"></a-entity>
+
     
         <!-- Clickable boxes -->
         <a-box class="clickable" color="red" position="-2 0.5 -2" navigate-on-click="target: Scenes/room1.html"></a-box>
