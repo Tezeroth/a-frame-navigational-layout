@@ -7,30 +7,16 @@
     <!-- Directly include A-Frame and plugins -->
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
      <!-- Add movement-controls -->
-   <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
-
-
-    <!--dont need these yet
-    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
-    -->
-
-        <!-- Include external raycaster script -->
-        <script src="../raycaster-listen.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+     <!-- Include external raycaster script -->
+     <script src="../raycaster-listen.js"></script>
 </head>
+
 <body>
-
-
-
     <a-scene inspector stats>
-
             <!-- Preload assets -->
     <a-assets>
          <img id="skybox2" crossorigin="anonymous" src="../Assets/skybox2.png"> 
-
-
-
-
     </a-assets>
 
         <!-- Load the skybox -->
@@ -39,37 +25,30 @@
         scale="0.7 0.4 1">
         </a-sky>
 
-        <!-- Camera with cursor -->
+        <!-- Camera Rig with Movement Controls -->
+        <a-entity id="rig" movement-controls="controls: gamepad, keyboard" position="0 0 0">
+        <!-- Camera -->
         <a-camera>
             <a-cursor
-                cursor
                 position="0 0 -1"
-                geometry="primitive: sphere; radius: 0.005 segmentsWidth: 4; segmentsHeight: 4"
-                material="color: #000000; shader: flat; opacity: 0.5"
-                raycaster="objects: .clickable"
-                >
+                geometry="primitive: sphere; radius: 0.005; segmentsWidth: 4; segmentsHeight: 4"
+                material="color: #0FFF00; shader: flat; opacity: 0.5"
+                raycaster="objects: .clickable">
             </a-cursor>
         </a-camera>
+        <!-- VR Hand Controllers -->
+        <a-entity
+            hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"
+            position="-0.5 0 -0.5">
+        </a-entity>
+        <a-entity
+            hand-controls="hand: right; handModelStyle: lowPoly; color: #ccccff"
+            position="0.5 0 -0.5">
+        </a-entity>
+        </a-entity>
 
-        <!--The floor-->
-        <a-plane src="/Assets/checkerboard.png"
-        scale="0.5 0.5 0.5"
-        position="0 0 -5"
-        width="30"
-        height="30"
-        rotation="-90 0 0">
-        </a-plane>
-
-
-
-        <!-- Blue box positioned in front of the user -->
-        <a-box 
-        geometry="primitive: box; depth: 1; height: 1; width: 1; segments: 1 1 1"
-        class="clickable"
-        color="blue"
-        position="-2 0.5 -2"
-        navigate-on-click="target: ../index.html">
-        </a-box>
+        <!--Blue Box to left of user-->
+        <a-box class="clickable" color="Blue" position="-2 0.5 -2" navigate-on-click="target: Scenes/room1.html"></a-box>
 
         <!-- Archway model positioned in front of the user -->
         <a-entity 
@@ -81,6 +60,8 @@
         navigate-on-click="target: ../index.html;">
       </a-entity>
 
+     <!-- Floor -->
+     <a-plane src="../Assets/checkerboard.png" scale="0.5 0.5 0.5" position="0 0 -5" width="30" height="30" rotation="-90 0 0"></a-plane>
 
 
     </a-scene>
