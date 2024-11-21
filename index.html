@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
  <!-- Include A-Frame -->
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 <!-- Include external raycaster script -->
     <script src="raycaster-listen.js"></script>
 </head>
@@ -43,9 +43,9 @@
         <a-entity hand-controls="hand: right; handModelStyle: lowPoly; color: #ccccff"></a-entity>
     
         <!-- Clickable boxes -->
-        <a-box class="clickable" color="red" position="-2 0.5 -2" navigate-on-click="target: Scenes/room1.html"></a-box>
-        <a-box class="clickable" color="blue" position="0 0.5 -2" navigate-on-click="target: Scenes/room2.html"></a-box>
-        <a-box class="clickable" color="green" position="2 0.5 -2" navigate-on-click="target: Scenes/room3.html"></a-box>
+        <a-box class="clickable" color="red" position="-2 0.5 -2" navigate-on-click="target: /Scenes/room1.html"></a-box>
+        <a-box class="clickable" color="blue" position="0 0.5 -2" navigate-on-click="target: /Scenes/room2.html"></a-box>
+        <a-box class="clickable" color="green" position="2 0.5 -2" navigate-on-click="target: /Scenes/room3.html"></a-box>
     
         <!-- Floor -->
         <a-plane src="Assets/checkerboard.png" scale="0.5 0.5 0.5" position="0 0 -5" width="30" height="30" rotation="-90 0 0"></a-plane>
