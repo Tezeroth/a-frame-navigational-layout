@@ -9,20 +9,18 @@ AFRAME.registerComponent('navigate-on-click', {
         // Handle primitive geometries or models
         this.storeOriginalProperties();
 
-        // Change material color on hover
+        // Change material color on hover (works in non-VR and VR)
         this.el.addEventListener('mouseenter', () => {
             const mesh = this.el.getObject3D('mesh');
             if (mesh) {
                 mesh.traverse((node) => {
                     if (node.isMesh) {
-                        // Store the original color if not already stored
                         if (!this.originalColors.has(node)) {
                             this.originalColors.set(
                                 node,
                                 node.material.color ? node.material.color.clone() : null
                             );
                         }
-                        // Change color to hover color
                         if (node.material.color) {
                             node.material.color.set(this.data.hoverColor);
                         }
@@ -39,7 +37,6 @@ AFRAME.registerComponent('navigate-on-click', {
                     if (node.isMesh) {
                         const originalColor = this.originalColors.get(node);
                         if (originalColor) {
-                            // Restore original color
                             node.material.color.copy(originalColor);
                         }
                     }
@@ -47,16 +44,30 @@ AFRAME.registerComponent('navigate-on-click', {
             }
         });
 
-        // Handle navigation on click
+        // Handle navigation on mouse click (non-VR)
         this.el.addEventListener('click', () => {
-            if (this.data.target) {
-                console.log(`Navigating to: ${this.data.target}`);
-                window.location.href = this.data.target;
-            } else {
-                console.warn('No target URL specified for navigation.');
+            this.navigate();
+        });
+
+        // Handle navigation via VR controller trigger (VR)
+        this.el.sceneEl.addEventListener('triggerdown', (event) => {
+            const controller = event.target; // The VR controller entity
+            const intersected = controller.components.raycaster.intersectedEls[0];
+            if (intersected === this.el) {
+                this.navigate();
             }
         });
     },
+
+    navigate: function () {
+        if (this.data.target) {
+            console.log(`Navigating to: ${this.data.target}`);
+            window.location.href = this.data.target;
+        } else {
+            console.warn('No target URL specified for navigation.');
+        }
+    },
+
     storeOriginalProperties: function () {
         // For primitives, the mesh is immediately available
         const mesh = this.el.getObject3D('mesh');
