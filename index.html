@@ -4,70 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
- <!-- Include A-Frame -->
+    <!-- Include A-Frame -->
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-
- <!-- Add movement-controls -->
-   <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
-
-
-<!-- Include external raycaster script -->
+    <!-- Add movement-controls -->
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
+    <!-- Include external raycaster script -->
     <script src="raycaster-listen.js"></script>
 </head>
 
-
 <body>
-
     <a-scene inspector stats controller-raycaster>
-
         <!-- Preload assets -->
         <a-assets>
             <img id="skybox1" crossorigin="anonymous" src="Assets/skybox1.png">
         </a-assets>
-    
+
         <!-- Skybox -->
         <a-sky
             src="#skybox1"
             geometry="primitive: sphere; radius: 492.72; segmentsWidth: 12; segmentsHeight: 12"
             scale="0.7 0.4 1">
         </a-sky>
-    
+
         <!-- Camera Rig with Movement Controls -->
         <a-entity id="rig" movement-controls="controls: gamepad, keyboard" position="0 1.6 0">
             <!-- Camera -->
             <a-camera>
                 <a-cursor
-                    cursor position="0 0 -1"
-                    geometry="primitive: sphere; radius: 0.005 segmentsWidth: 4; segmentsHeight: 4"
+                    position="0 0 -1"
+                    geometry="primitive: sphere; radius: 0.005; segmentsWidth: 4; segmentsHeight: 4"
                     material="color: #0FFF00; shader: flat; opacity: 0.5"
                     raycaster="objects: .clickable">
                 </a-cursor>
-
-                <!-- VR Hand Controllers (Attach to the Camera) -->
-                <a-entity
-                    hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"
-                    position="-0.5 -0.5 -0.5">
-                </a-entity>
-                <a-entity
-                    hand-controls="hand: right; handModelStyle: lowPoly; color: #ccccff"
-                    position="0.5 -0.5 -0.5">
-                </a-entity>
             </a-camera>
+
+            <!-- VR Hand Controllers -->
+            <a-entity
+                hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"
+                position="-0.5 0 -0.5">
+            </a-entity>
+            <a-entity
+                hand-controls="hand: right; handModelStyle: lowPoly; color: #ccccff"
+                position="0.5 0 -0.5">
+            </a-entity>
         </a-entity>
 
-
-
-    
         <!-- Clickable boxes -->
         <a-box class="clickable" color="red" position="-2 0.5 -2" navigate-on-click="target: Scenes/room1.html"></a-box>
         <a-box class="clickable" color="blue" position="0 0.5 -2" navigate-on-click="target: Scenes/room2.html"></a-box>
         <a-box class="clickable" color="green" position="2 0.5 -2" navigate-on-click="target: Scenes/room3.html"></a-box>
-    
+
         <!-- Floor -->
         <a-plane src="Assets/checkerboard.png" scale="0.5 0.5 0.5" position="0 0 -5" width="30" height="30" rotation="-90 0 0"></a-plane>
     </a-scene>
-    
-
-
 </body>
 </html>
