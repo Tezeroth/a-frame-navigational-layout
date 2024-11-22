@@ -10,6 +10,8 @@
     <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
      <!-- Include external raycaster script -->
      <script src="../raycaster-listen.js"></script>
+         <!-- light test -->
+    <script src="https://unpkg.com/aframe-animation-component@3.2.5/dist/aframe-animation-component.min.js"></script>
 </head>
 <body>
     <a-scene inspector stats>
@@ -17,6 +19,18 @@
         <!-- Preload assets -->
         <a-assets>
             <img id="skybox3" crossorigin="anonymous" src="../Assets/skybox3.png" >
+
+            <!--light test-->
+<a-mixin id="light"
+geometry="primitive: sphere; radius: 1.5"
+material="color: #FFF; shader: flat"
+light="color: #DDDDFF; distance: 120; intensity: 2; type: point"></a-mixin>
+<a-mixin id="torusKnot"
+random-torus-knot
+random-material
+random-position="min: -60 -60 -80; max: 60 60 40"></a-mixin>
+
+
         </a-assets>
         
                 <!-- Skybox with custom geometry and scale -->
@@ -61,6 +75,20 @@
             position="0 0.5 -2"
             navigate-on-click="target: ../index.html">
         </a-box>
+
+        
+        <!--light test-->
+        <a-entity animation="property: rotation; to: 0 0 360; dur: 4000; easing: linear; loop: true">
+            <a-entity mixin="light" position="30 0 0"></a-entity>
+          </a-entity>
+    
+          <a-entity animation="property: rotation; to: 360 0 0; dur: 4000; easing: linear; loop: true">
+            <a-entity mixin="light" position="0 0 40"></a-entity>
+
+
+
+
+
     </a-scene>
 
 
