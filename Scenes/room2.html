@@ -17,10 +17,10 @@
     <a-scene inspector stats>
 
         <!-- Preload assets -->
+        
         <a-assets>
-            <img id="skybox3" crossorigin="anonymous" src="../Assets/skybox3.png" >
 
-            <!--light test-->
+ <!--light test-->
 <a-mixin id="light"
 geometry="primitive: sphere; radius: 1.5"
 material="color: #FFF; shader: flat"
@@ -35,9 +35,10 @@ random-position="min: -60 -60 -80; max: 60 60 40"></a-mixin>
         
                 <!-- Skybox with custom geometry and scale -->
                 <a-sky
-                src="#skybox3"
+                id="#skybox3"
                 geometry="primitive: sphere; radius: 492.72; segmentsWidth: 12; segmentsHeight: 12"
-                scale="0.7 0.4 1">
+                scale="0.7 0.4 1"
+                src="../Assets/skybox3R.png">
                  </a-sky>
 
 
@@ -64,16 +65,14 @@ random-position="min: -60 -60 -80; max: 60 60 40"></a-mixin>
         </a-entity>
     </a-entity>
 
-    <!-- Floor -->
-    <a-plane src="../Assets/checkerboard.png" scale="0.5 0.5 0.5" position="0 0 -5" width="30" height="30" rotation="-90 0 0"></a-plane>
-
+    
         <!-- Red box positioned in front of the user -->
         <a-box
             geometry="primitive: box"
             class="clickable"
             color="red"
             position="0 0.5 -2"
-            navigate-on-click="target: ../index.html">
+            navigate-on-click="target: indexclone.html">
         </a-box>
 
         
@@ -84,9 +83,18 @@ random-position="min: -60 -60 -80; max: 60 60 40"></a-mixin>
     
           <a-entity animation="property: rotation; to: 360 0 0; dur: 4000; easing: linear; loop: true">
             <a-entity mixin="light" position="0 0 40"></a-entity>
+          </a-entity>
 
-
-
+     <!-- Floor -->
+     <a-plane id="#checkerboard" 
+     crossorigin="anonymous" 
+     scale="0.5 0.5 0.5" 
+     position="0 0 -5" 
+     width="30" 
+     height="30" 
+     rotation="-90 0 0"
+     src="../Assets/checkerboardR.png">
+    </a-plane>
 
 
     </a-scene>

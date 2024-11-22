@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>Loading main page</title>
     <!-- Include A-Frame -->
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <!-- Add movement-controls -->
@@ -15,9 +15,17 @@
 
 <body>
     <a-scene inspector stats controller-raycaster>
-        <!-- Preload assets -->
+        <!-- Preload assets, you can call them from the other scenes of the site -->
         <a-assets>
-            <img id="skybox1" crossorigin="anonymous" src="Assets/skybox1.png">
+        <!-- Skybox images, all optimized with https://squoosh.app (hence the R) -->
+            <img id="skybox1" crossorigin="anonymous" src="Assets/skybox1R.png">
+            <img id="skybox2" crossorigin="anonymous" src="Assets/skybox2R.png">
+            <img id="skybox3" crossorigin="anonymous" src="Assets/skybox3R.png">
+            <img id="skybox4" crossorigin="anonymous" src="Assets/skybox4R.png">
+        <!-- Floor images -->
+            <img id="checkerboard" crossorigin="anonymous" src="Assets/checkerboardR.png">
+        <!-- Models -->
+            <a-asset-item id="archway" src="Models/archwaybake.glb"></a-asset-item>
         </a-assets>
 
         <!-- Skybox -->
@@ -56,7 +64,7 @@
         <a-box class="clickable" color="green" position="2 0.5 -2" navigate-on-click="target: Scenes/room3.html"></a-box>
 
         <!-- Floor -->
-        <a-plane src="Assets/checkerboard.png" scale="0.5 0.5 0.5" position="0 0 -5" width="30" height="30" rotation="-90 0 0"></a-plane>
+        <a-plane src="Assets/checkerboardR.png" scale="0.5 0.5 0.5" position="0 0 -5" width="30" height="30" rotation="-90 0 0"></a-plane>
 
     </a-scene>
 </body>

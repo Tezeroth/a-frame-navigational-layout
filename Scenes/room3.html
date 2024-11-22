@@ -15,16 +15,14 @@
 <body>
     <a-scene inspector stats>
 
-        <!-- Preload assets -->
-        <a-assets>
-            <img id="skybox4" crossorigin="anonymous" src="../Assets/skybox4.png" >
-        </a-assets>
+
         
                 <!-- Skybox with custom geometry and scale -->
                 <a-sky
-                src="#skybox4"
+                id="#skybox4"
                 geometry="primitive: sphere; radius: 492.72; segmentsWidth: 12; segmentsHeight: 12"
-                scale="0.7 0.4 1">
+                scale="0.7 0.4 1"
+                src="../Assets/skybox4R.png">
                  </a-sky>
 
 
@@ -58,14 +56,7 @@
 
 
 
-    <!-- Floor -->
-    <a-plane src="../Assets/checkerboard.png" 
-    scale="0.5 0.5 0.5" 
-    position="0 0 -5" 
-    width="30" 
-    height="30" 
-    rotation="-90 0 0">
-    </a-plane>
+
 
 
         <!-- green box positioned in front of the user -->
@@ -74,7 +65,7 @@
             class="clickable"
             color="green"
             position="-2 0.5 -2"
-            navigate-on-click="target: ../index.html">
+            navigate-on-click="target: indexclone.html">
         </a-box>
 
         <a-entity 
@@ -86,7 +77,16 @@
         navigate-on-click="target: https://github.com/Tezeroth">
       </a-entity>
 
-
+           <!-- Floor -->
+     <a-plane id="#checkerboard" 
+     crossorigin="anonymous" 
+     scale="0.5 0.5 0.5" 
+     position="0 0 -5" 
+     width="30" 
+     height="30" 
+     rotation="-90 0 0"
+     src="../Assets/checkerboardR.png">
+    </a-plane>
 
       
     </a-scene>

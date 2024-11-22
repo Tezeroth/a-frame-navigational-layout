@@ -10,19 +10,18 @@
     <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
      <!-- Include external raycaster script -->
      <script src="../raycaster-listen.js"></script>
+
 </head>
 
 <body>
     <a-scene inspector stats>
-            <!-- Preload assets -->
-    <a-assets>
-         <img id="skybox2" crossorigin="anonymous" src="../Assets/skybox2.png"> 
-    </a-assets>
 
         <!-- Load the skybox -->
-        <a-sky src="#skybox2"
+        <a-sky 
+        id="#skybox2"
         geometry="primitive: sphere; radius: 492.72; segmentsWidth: 12; segmentsHeight: 12"
-        scale="0.7 0.4 1">
+        scale="0.7 0.4 1"
+        src="/Assets/skybox2R.png">
         </a-sky>
 
         <!-- Camera Rig with Movement Controls -->
@@ -48,7 +47,7 @@
         </a-entity>
 
         <!--Blue Box to left of user-->
-        <a-box class="clickable" color="Blue" position="-2 0.5 -2" navigate-on-click="target: ../index.html"></a-box>
+        <a-box class="clickable" color="Blue" position="-2 0.5 -2" navigate-on-click="target: indexclone.html"></a-box>
 
         <!-- Archway model positioned in front of the user -->
         <a-entity 
@@ -57,11 +56,19 @@
         position="0 0 -3" 
         rotation="0 180 0" 
         scale="1 1 1 "
-        navigate-on-click="target: ../index.html;">
+        navigate-on-click="target: indexclone.html;">
       </a-entity>
 
      <!-- Floor -->
-     <a-plane src="../Assets/checkerboard.png" scale="0.5 0.5 0.5" position="0 0 -5" width="30" height="30" rotation="-90 0 0"></a-plane>
+     <a-plane id="#checkerboard" 
+     crossorigin="anonymous" 
+     scale="0.5 0.5 0.5" 
+     position="0 0 -5" 
+     width="30" 
+     height="30" 
+     rotation="-90 0 0"
+     src="../Assets/checkerboardR.png">
+    </a-plane>
 
 
     </a-scene>
